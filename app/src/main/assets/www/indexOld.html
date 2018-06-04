@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>panorama demo</title>
+		<meta charset="utf-8">
+        
+        <meta name="format-detection" content="telephone=no">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="css/common.css">
+		
+		<style>
+			body {
+				background-color: #000000;
+				margin: 0px;
+				overflow: hidden;
+                color:#666;
+                font-family:'黑体';
+			}
+
+            .advertisement{
+                width:160px;
+                height:160px;
+                border-radius:80px;
+                text-align:center;
+                background-color:#fff;
+                box-shadow:0px 0px 4px #666;
+                background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #cdcdcd));
+                z-index:19;
+            }
+            .advertisement-content{
+                height:100%;
+                width:100%;
+                display:-webkit-box;
+                -webkit-box-orient:vertical;
+                -webkit-box-pack:center;
+                -webkit-box-align:center;
+            }
+            .img-hide{width:20px;height:20px;position:absolute;top:-12px;right:-12px;visibility:hidden;}
+        }
+		</style>
+	</head>
+	<body ondrag="return false">
+    <script src="js/base.js"></script>
+    <script src="js/CSS3DRenderer.js"></script>
+    <div id="console"></div>
+    <div id="container" style="-webkit-transform: translateZ(0);">
+    </div>
+    <script src="js/xss.min.js"></script>
+   <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="cordova_plugins.js"></script>
+  <script type="text/javascript" src="js/MyPlguin.js"></script>
+  <script>
+      
+      
+      
+      
+      
+      
+      var config={
+          useCSS3D:true,
+          debug:false,
+          local:true,
+          localImagesPath:false,
+          autoRotate:true
+      }
+  
+  document.addEventListener("deviceready",onDeviceReady,false);
+      function onDeviceReady(){
+          MyIOSPlugin.nativeFunction("print",['HelloWorld'],
+                                     function(result) {
+                                     
+                                     config.localImagesPath=result.split(',')[0];                            config.cubeWidth=parseInt(result.split(',')[1]);
+                                     var i=0;
+                                     var t=['/negx.jpg','/negy.jpg','/negz.jpg','/posx.jpg','/posy.jpg','/posz.jpg'];
+                                     $('img').each(function(){
+                                                   $(this).attr('src',config.localImagesPath+t[i++]);
+                                                   });
+
+                                     },
+                                     function(error) {
+                                     alert("Error: \r\n"+error);
+                                     }
+                                     );
+                                     // alert("111111111");
+      }
+  </script>
+  
+        <script>
+            
+            function unicode2Chr(str) { 
+                if ('' != str) { 
+                    var st, t, i 
+                        st = ''; 
+                    for (i = 1; i <= str.length/4; i ++){ 
+                        t = str.slice(4*i-4, 4*i-2); 
+                        t = str.slice(4*i-2, 4*i).concat(t); 
+                        st = st.concat('%u').concat(t); 
+                    } 
+                    st = unescape(st); 
+                    return(st); 
+                } 
+                else 
+                    return(''); 
+            } 
+            if(!config.local){
+                var preload_comments=JSON.parse(config.comments);
+                for(var i in preload_comments){
+                    preload_comments[i].text=filterXSS(
+                            unicode2Chr(
+                                preload_comments[i].text),
+                                {whiteList:{div:[]}}
+                            );
+                    }
+            }
+        </script>
+        <script src="javascripts/utils.js"></script>
+        <script src="javascripts/scene.js">
+		</script>
+	</body>
+</html>

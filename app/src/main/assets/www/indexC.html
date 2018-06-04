@@ -1,0 +1,93 @@
+<html>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content=" user-scalable=no, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="author" content="Calculon 0x00111111@gmail.com">
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/common.css">
+        <link rel="stylesheet" type="text/css" href="css/sti-pano.css">
+        <link rel="stylesheet" type="text/css" href="css/panorama.css">
+    </head>
+    <script src="js/zepto-tween-xss-pano.min.js"></script>
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="cordova_plugins.js"></script>
+    <script type="text/javascript" src="js/MyPlguin.js"></script>
+    <body>
+
+        <!-- Essential -->
+        <div id="sti-pano">
+            <div id="container">
+                <div id="camera">
+                    <img class="cube front">
+                    <img class="cube left">
+                    <img class="cube right">
+                    <img class="cube back">
+                    <img class="cube top">
+                    <img class="cube bottom">
+                </div>
+            </div>
+        </div>
+        <!-- Debug -->
+        <div id="logger"></div>
+    </body>
+    <script>
+
+        var advertisement='速腾聚创';
+
+        var maxfov=120;
+        var minfov=90;
+        var fov=110;
+        if(checkMobile()||isIpad()){
+            maxfov=90;
+            minfov=70;
+            fov=70;
+        }
+
+        var moveRatio=0.3;
+        if(isIpad()){
+            moveRatio=0.2;
+        }
+    
+    var config={};
+    
+    document.addEventListener("deviceready",onDeviceReady,false);
+    function onDeviceReady(){
+        MyIOSPlugin.nativeFunction("print",['HelloWorld'],
+			function(result) {
+
+			config.localImagesPath=result.split(',')[0];
+			config.cubeWidth=parseInt(result.split(',')[1]);
+			var i=0;
+			var t=['/negx.jpg','/negy.jpg','/negz.jpg','/posx.jpg','/posy.jpg','/posz.jpg'];
+			for(var i in t){
+				t[i]=config.localImagesPath+t[i];
+			}
+                                   
+			var cubeSize=config.cubeWidth;
+			sti.init({
+                                            moveRatio:moveRatio,
+                                            localImages:t,
+                                            cubeSize:cubeSize,
+                                            dom   : $('#sti-pano'), // Panorama dom
+                                            rx    : 0,              // Rotation around X axis with degree
+                                            maxfov: maxfov,            // Max field of view
+                                            minfov: minfov,             // Min field of view
+                                            fov   : fov,            // Default field of view
+                                            
+                                            autoRotate: 0,
+                                            
+                                            mode      : 'viewer',
+                                            
+                                            advertisement:advertisement,
+                                            top_ad:'123'
+                                            });
+                        },          
+			function(error) {
+				alert("Error: \r\n"+error);
+			}
+                                   );
+                                   // alert("111111111");
+    }
+    </script>
+</html>

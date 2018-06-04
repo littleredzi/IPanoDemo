@@ -1,0 +1,156 @@
+<html>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content=" user-scalable=no, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="author" content="Calculon 0x00111111@gmail.com">
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/common.css">
+        <link rel="stylesheet" type="text/css" href="css/sti-pano.css">
+        <link rel="stylesheet" type="text/css" href="css/panorama.css">
+    </head>
+    <script src="js/zepto-tween-xss-pano.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="cordova_plugins.js"></script>
+    <script type="text/javascript" src="js/MyPlguin.js"></script>
+    <script src="js/template-native.js"></script>
+    <script>
+    template.config('openTag','<#');
+    template.config('closeTag','#>');
+    </script>
+    <body>
+
+        <!-- Essential -->
+        <div id="sti-pano">
+            <div id="container">
+                <div id="camera">
+                    <img class="cube front">
+                    <img class="cube left">
+                    <img class="cube right">
+                    <img class="cube back">
+                    <img class="cube top">
+                    <img class="cube bottom">
+                </div>
+            </div>
+        </div>
+        <!-- Debug -->
+        <div id="logger"></div>
+    </body>
+    <script id="template-slider" type="text/html">
+            <div class="slider-wrap show">
+                <div class="slider-btn">
+                    <div class="slider-arrow"></div>
+                </div>
+                <div class="sliders">
+                    <div class="slider-scroller">
+                    <#for(var i in romaing){#>
+                        <div class="slider" data-key="<#=romaing[i].img_url#>">
+                            <img width=80 height=80 src="<#=romaing[i].img_url#>/negx.jpg">
+                            <div class="slider-title hcenter f14"><#=romaing[i].name#></div>
+                        </div>
+                    <#}#>
+                    </div>
+                </div>
+            </div>
+    </script>
+    
+    <script>
+    function initSlider(config){
+        $('body').append(template('template-slider',config));
+        $('.slider-scroller').width($('.slider').size()*90);
+        if(checkMobile()){
+                bindClick($('.slider-btn'),sliderSwitch);
+                bindClick($('.slider'),sliderClick);
+        }else{
+                $('.slider-btn').on('click',sliderSwitch);
+                $('.slider').on('click',sliderClick);
+        }
+    }
+    function sliderSwitch(){
+        if($('.slider-wrap').hasClass('show')){
+            $('.slider-wrap').removeClass('show');
+        }else{
+            $('.slider-wrap').addClass('show');
+        }
+    }
+    
+    function sliderClick(){
+        changeScene($(this).attr('data-key'));
+    }
+    
+    </script>
+    <script>
+
+        var advertisement='速腾聚创';
+
+        var maxfov=120;
+        var minfov=90;
+        var fov=110;
+        if(checkMobile()||isIpad()){
+            maxfov=90;
+            minfov=70;
+            fov=70;
+        }
+
+        var moveRatio=0.3;
+        if(isIpad()){
+            moveRatio=0.2;
+        }
+
+        var cubeSize=1024;
+        changeScene=function(path){
+            sti.init({
+                advertisement:advertisement,
+                top_ad:'123',
+                localImages:[
+                    path+'/negx.jpg',
+                    path+'/negy.jpg',
+                    path+'/negz.jpg',
+                    path+'/posx.jpg',
+                    path+'/posy.jpg',
+                    path+'/posz.jpg'
+                ]
+            });
+
+        }
+
+	var config={};
+	function deal(result){
+		config=JSON.parse(result);
+        	var sliderConfig={
+        	    romaing:config.romaing
+		};
+        	initSlider(sliderConfig);
+
+                var i=0;
+                var t=['/negx.jpg','/negy.jpg','/negz.jpg','/posx.jpg','/posy.jpg','/posz.jpg'];
+                for(var i in t){
+                	t[i]=config.romaing[0].img_url+t[i];
+                }
+
+                sti.init({
+                         moveRatio:moveRatio,
+                         localImages:t,
+                         cubeSize:config.cubeSize||1024,
+                         dom   : $('#sti-pano'), // Panorama dom
+                         rx    : 0,              // Rotation around X axis with degree
+                         maxfov: maxfov,            // Max field of view
+                         minfov: minfov,             // Min field of view
+                         fov   : fov,            // Default field of view
+                         
+                         autoRotate: 0,
+                         mode      : 'viewer',
+                         
+                         advertisement:advertisement,
+                         top_ad:'123'
+                 });
+        }          
+		
+        document.addEventListener("deviceready",onDeviceReady,false);
+	function onError(err){
+		alert(error);
+	}
+        function onDeviceReady(){
+            MyIOSPlugin.nativeFunction("print",['HelloWorld'],deal,onError);
+        }
+    </script>
+</html>

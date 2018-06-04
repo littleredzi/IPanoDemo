@@ -1,0 +1,690 @@
+<krpano version="1.18" title="深圳罗湖" onstart="startup();" showerrors="true">
+
+    <include url="vtourskin.xml" />
+
+    <!-- set skin settings: bingmaps? gyro? thumbnails? tooltips? -->
+    <skin_settings maps="false"
+                   maps_zoombuttons="false"
+                   gyro="true"
+                   title="true"
+                   thumbs="true"
+                   thumbs_opened="false"
+                   thumbs_width="120" thumbs_height="80" thumbs_padding="10"
+                   thumbs_text="true"
+                   thumbs_dragging="true"
+                   thumbs_onhoverscrolling="true"
+                   thumbs_scrollbuttons="false"
+                   thumbs_scrollindicator="false"
+                   thumbs_loop="false"
+                   tooltips_thumbs="true"
+                   tooltips_hotspots="false"
+                   tooltips_mapspots="false"
+                   loadscene_flags="MERGE"
+                   loadscene_blend="BLEND(0.5)"
+                   controlbar_offset="50"
+    />
+    <!-- set optional skin logo url -->
+    <layer name="skin_logo" url="" scale="0.25" opened_onclick="openurl('...',_blank);" />
+
+    <action name="startup">
+        if(startscene === null, copy(startscene,scene[0].name));
+        set(skin_settings.scene_count, get(number));
+        set(scene[0].title,get(name0));
+        set(scene[1].title,get(name1));
+        set(scene[2].title,get(name2));
+        set(scene[3].title,get(name3));
+        set(scene[4].title,get(name4));
+        set(scene[5].title,get(name5));
+        set(scene[6].title,get(name6));
+        set(scene[7].title,get(name7));
+        set(scene[8].title,get(name8));
+        set(scene[9].title,get(name9));
+        set(scene[10].title,get(name10));
+        set(scene[11].title,get(name11));
+        set(scene[12].title,get(name12));
+        set(scene[13].title,get(name13));
+        set(scene[14].title,get(name14));
+        set(scene[15].title,get(name15));
+        set(scene[16].title,get(name16));
+        set(scene[17].title,get(name17));
+        set(scene[18].title,get(name18));
+        set(scene[19].title,get(name19));
+        set(scene[20].title,get(name20));
+        set(scene[21].title,get(name21));
+        set(scene[22].title,get(name22));
+        set(scene[23].title,get(name23));
+        set(scene[24].title,get(name24));
+        set(scene[25].title,get(name25));
+        set(scene[26].title,get(name26));
+        set(scene[27].title,get(name27));
+        set(scene[28].title,get(name28));
+        set(scene[29].title,get(name29));
+        loadscene(get(startscene), null, MERGE);
+        skin_showthumbs();
+    </action>
+
+    <data name="bottom_html">
+        <p>速腾聚创</p>
+    </data>
+
+    <!-- 底部广告图 -->
+    <hotspot name="bottom_background"
+             url="%SWFPATH%/images/bottom.png"
+             enabled="true"
+             keep="true"
+             handcursor="false"
+             ath="0" atv="90" rx="0.0" ry="0.0" rz="0.0"
+             width="360" height="360"
+             distorted="true"
+             ondown="skin_view_change_with_hotspot();"
+             />
+    <hotspot name="bottom_trademark"
+             url="%SWFPATH%/plugins/textfield.swf"
+             css="text-align:center; color:#494949; font-family:黑体; text-align:center;  font-size:40px;"
+             enabled="true"
+             keep="true"
+             shadowangle="45" shadowrange="4.0"
+             handcursor="false"
+             background="false"
+             ath="0" atv="90" rx="0.0" ry="0.0" rz="0.0"
+             distorted="true"
+             html="data:bottom_html"
+             />
+
+    <!-- 顶部广告图 -->
+    <hotspot name="top_trademark" 
+             type="image"
+             waittime="1"
+             keep="true"
+             url="%SWFPATH%/images/logo_ie.png"
+             devices="all"
+             handcursor="false"
+             ath="0" atv="-90" rx="0.0" ry="0.0" rz="0.0"
+             width="360" height="360"
+             distorted="true"
+             ondown="skin_view_change_with_hotspot();"
+             />
+
+    <scene name="scene0" lat="" lng="" heading="" onstart="" thumburl="%$mypath01%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath01%" flip="" />
+          
+            <down  url="%$mypath02%" flip="" />
+        
+            <left  url="%$mypath03%" flip="" />
+        
+            <back  url="%$mypath04%" flip="" />
+        
+            <up  url="%$mypath05%" flip="" />
+        
+            <right  url="%$mypath06%" flip="" />
+        </image>    </scene>
+
+    <scene name="scene1" lat="" lng="" heading="" onstart="" thumburl="%$mypath11%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath11%" flip="" />
+          
+            <down  url="%$mypath12%" flip="" />
+        
+            <left  url="%$mypath13%" flip="" />
+        
+            <back  url="%$mypath14%" flip="" />
+        
+            <up  url="%$mypath15%" flip="" />
+        
+            <right  url="%$mypath16%" flip="" />
+        </image>  </scene>
+
+    <scene name="scene2" lat="" lng="" heading="" onstart="" thumburl="%$mypath21%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath21%" flip="" />
+          
+            <down  url="%$mypath22%" flip="" />
+        
+            <left  url="%$mypath23%" flip="" />
+        
+            <back  url="%$mypath24%" flip="" />
+        
+            <up  url="%$mypath25%" flip="" />
+        
+            <right  url="%$mypath26%" flip="" />2%" flip="" />
+        </image>  </scene>
+
+    <scene name="scene3" lat="" lng="" heading="" onstart="" thumburl="%$mypath31%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath31%" flip="" />
+          
+            <down  url="%$mypath32%" flip="" />
+        
+            <left  url="%$mypath33%" flip="" />
+        
+            <back  url="%$mypath34%" flip="" />
+        
+            <up  url="%$mypath35%" flip="" />
+        
+            <right  url="%$mypath36%" flip="" />
+        </image>  </scene>
+
+    <scene name="scene4" lat="" lng="" heading="" onstart="" thumburl="%$mypath41%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath41%" flip="" />
+          
+            <down  url="%$mypath42%" flip="" />
+        
+            <left  url="%$mypath43%" flip="" />
+        
+            <back  url="%$mypath44%" flip="" />
+        
+            <up  url="%$mypath45%" flip="" />
+        
+            <right  url="%$mypath46%" flip="" />
+        </image>  </scene>
+
+    <scene name="scene5" lat="" lng="" heading="" onstart="" thumburl="%$mypath51%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath51%" flip="" />
+          
+            <down  url="%$mypath52%" flip="" />
+        
+            <left  url="%$mypath53%" flip="" />
+        
+            <back  url="%$mypath54%" flip="" />
+        
+            <up  url="%$mypath55%" flip="" />
+        
+            <right  url="%$mypath56%" flip="" />
+        </image>  </scene>
+
+    <scene name="scene6" lat="" lng="" heading="" onstart="" thumburl="%$mypath61%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath61%" flip="" />
+          
+            <down  url="%$mypath62%" flip="" />
+        
+            <left  url="%$mypath63%" flip="" />
+        
+            <back  url="%$mypath64%" flip="" />
+        
+            <up  url="%$mypath65%" flip="" />
+        
+            <right  url="%$mypath66%" flip="" />
+        </image>  </scene>
+
+    <scene name="scene7" lat="" lng="" heading="" onstart="" thumburl="%$mypath71%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath71%" flip="" />
+          
+            <down  url="%$mypath72%" flip="" />
+        
+            <left  url="%$mypath73%" flip="" />
+        
+            <back  url="%$mypath74%" flip="" />
+        
+            <up  url="%$mypath75%" flip="" />
+        
+            <right  url="%$mypath76%" flip="" />
+        </image>  </scene>
+
+    <scene name="scene8" lat="" lng="" heading="" onstart="" thumburl="%$mypath81%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath81%" flip="" />
+          
+            <down  url="%$mypath82%" flip="" />
+        
+            <left  url="%$mypath83%" flip="" />
+        
+            <back  url="%$mypath84%" flip="" />
+        
+            <up  url="%$mypath85%" flip="" />
+        
+            <right  url="%$mypath86%" flip="" />
+        </image>  </scene>
+
+    <scene name="scene9" lat="" lng="" heading="" onstart="" thumburl="%$mypath91%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath91%" flip="" />
+          
+            <down  url="%$mypath92%" flip="" />
+        
+            <left  url="%$mypath93%" flip="" />
+        
+            <back  url="%$mypath94%" flip="" />
+        
+            <up  url="%$mypath95%" flip="" />
+        
+            <right  url="%$mypath96%" flip="" />
+        </image>  </scene>
+
+
+
+
+
+
+
+    <scene name="scene10" lat="" lng="" heading="" onstart="" thumburl="%$mypath101%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath101%" flip="" />
+          
+            <down  url="%$mypath102%" flip="" />
+        
+            <left  url="%$mypath103%" flip="" />
+        
+            <back  url="%$mypath104%" flip="" />
+        
+            <up  url="%$mypath105%" flip="" />
+        
+            <right  url="%$mypath106%" flip="" />10%" flip="" />
+        </image>
+    </scene>
+
+    <scene name="scene11" lat="" lng="" heading="" onstart="" thumburl="%$mypath111%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath111%" flip="" />
+          
+            <down  url="%$mypath112%" flip="" />
+        
+            <left  url="%$mypath113%" flip="" />
+        
+            <back  url="%$mypath114%" flip="" />
+        
+            <up  url="%$mypath115%" flip="" />
+        
+            <right  url="%$mypath116%" flip="" />
+        </image>
+    </scene>
+
+    <scene name="scene12" lat="" lng="" heading="" onstart="" thumburl="%$mypath121%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath121%" flip="" />
+          
+            <down  url="%$mypath122%" flip="" />
+        
+            <left  url="%$mypath123%" flip="" />
+        
+            <back  url="%$mypath124%" flip="" />
+        
+            <up  url="%$mypath125%" flip="" />
+        
+            <right  url="%$mypath126%" flip="" />
+        </image>
+    </scene>
+
+    <scene name="scene13" lat="" lng="" heading="" onstart="" thumburl="%$mypath131%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath131%" flip="" />
+          
+            <down  url="%$mypath132%" flip="" />
+        
+            <left  url="%$mypath133%" flip="" />
+        
+            <back  url="%$mypath134%" flip="" />
+        
+            <up  url="%$mypath135%" flip="" />
+        
+            <right  url="%$mypath136%" flip="" />
+        </image>
+    </scene>
+
+    <scene name="scene14" lat="" lng="" heading="" onstart="" thumburl="%$mypath141%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath141%" flip="" />
+          
+            <down  url="%$mypath142%" flip="" />
+        
+            <left  url="%$mypath143%" flip="" />
+        
+            <back  url="%$mypath144%" flip="" />
+        
+            <up  url="%$mypath145%" flip="" />
+        
+            <right  url="%$mypath146%" flip="" />
+        </image>
+    </scene>
+
+    <scene name="scene15" lat="" lng="" heading="" onstart="" thumburl="%$mypath151%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath151%" flip="" />
+          
+            <down  url="%$mypath152%" flip="" />
+        
+            <left  url="%$mypath153%" flip="" />
+        
+            <back  url="%$mypath154%" flip="" />
+        
+            <up  url="%$mypath155%" flip="" />
+        
+            <right  url="%$mypath156%" flip="" />
+        </image>
+    </scene>
+
+    <scene name="scene16" lat="" lng="" heading="" onstart="" thumburl="%$mypath161%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath161%" flip="" />
+          
+            <down  url="%$mypath162%" flip="" />
+        
+            <left  url="%$mypath163%" flip="" />
+        
+            <back  url="%$mypath164%" flip="" />
+        
+            <up  url="%$mypath165%" flip="" />
+        
+            <right  url="%$mypath166%" flip="" />
+        </image>
+    </scene>
+
+    <scene name="scene17" lat="" lng="" heading="" onstart="" thumburl="%$mypath171%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath171%" flip="" />
+          
+            <down  url="%$mypath172%" flip="" />
+        
+            <left  url="%$mypath173%" flip="" />
+        
+            <back  url="%$mypath174%" flip="" />
+        
+            <up  url="%$mypath175%" flip="" />
+        
+            <right  url="%$mypath176%" flip="" />
+        </image>
+    </scene>
+
+    <scene name="scene18" lat="" lng="" heading="" onstart="" thumburl="%$mypath181%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath181%" flip="" />
+          
+            <down  url="%$mypath182%" flip="" />
+        
+            <left  url="%$mypath183%" flip="" />
+        
+            <back  url="%$mypath184%" flip="" />
+        
+            <up  url="%$mypath185%" flip="" />
+        
+            <right  url="%$mypath186%" flip="" />
+        </image>
+    </scene>
+
+    <scene name="scene19" lat="" lng="" heading="" onstart="" thumburl="%$mypath191%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath191%" flip="" />
+          
+            <down  url="%$mypath192%" flip="" />
+        
+            <left  url="%$mypath193%" flip="" />
+        
+            <back  url="%$mypath194%" flip="" />
+        
+            <up  url="%$mypath195%" flip="" />
+        
+            <right  url="%$mypath196%" flip="" />
+        </image>
+    </scene>
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+    <scene name="scene20" lat="" lng="" heading="" onstart="" thumburl="%$mypath201%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath201%" flip="" />
+          
+            <down  url="%$mypath202%" flip="" />
+        
+            <left  url="%$mypath203%" flip="" />
+        
+            <back  url="%$mypath204%" flip="" />
+        
+            <up  url="%$mypath205%" flip="" />
+        
+            <right  url="%$mypath206%" flip="" />
+        </image>
+    </scene>
+
+    <scene name="scene21" lat="" lng="" heading="" onstart="" thumburl="%$mypath211%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath211%" flip="" />
+          
+            <down  url="%$mypath212%" flip="" />
+        
+            <left  url="%$mypath213%" flip="" />
+        
+            <back  url="%$mypath214%" flip="" />
+        
+            <up  url="%$mypath215%" flip="" />
+        
+            <right  url="%$mypath216%" flip="" />
+        </image>
+    </scene>
+
+    <scene name="scene22" lat="" lng="" heading="" onstart="" thumburl="%$mypath221%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath221%" flip="" />
+          
+            <down  url="%$mypath222%" flip="" />
+        
+            <left  url="%$mypath223%" flip="" />
+        
+            <back  url="%$mypath224%" flip="" />
+        
+            <up  url="%$mypath225%" flip="" />
+        
+            <right  url="%$mypath226%" flip="" />
+        </image>
+    </scene>
+
+    <scene name="scene23" lat="" lng="" heading="" onstart="" thumburl="%$mypath251%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath231%" flip="" />
+          
+            <down  url="%$mypath232%" flip="" />
+        
+            <left  url="%$mypath233%" flip="" />
+        
+            <back  url="%$mypath234%" flip="" />
+        
+            <up  url="%$mypath235%" flip="" />
+        
+            <right  url="%$mypath236%" flip="" />
+        </image>
+    </scene>
+
+    <scene name="scene24" lat="" lng="" heading="" onstart="" thumburl="%$mypath231%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath241%" flip="" />
+          
+            <down  url="%$mypath242%" flip="" />
+        
+            <left  url="%$mypath243%" flip="" />
+        
+            <back  url="%$mypath244%" flip="" />
+        
+            <up  url="%$mypath245%" flip="" />
+        
+            <right  url="%$mypath246%" flip="" />
+        </image>
+    </scene>
+
+    <scene name="scene25" lat="" lng="" heading="" onstart="" thumburl="%$mypath241%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath251%" flip="" />
+          
+            <down  url="%$mypath252%" flip="" />
+        
+            <left  url="%$mypath253%" flip="" />
+        
+            <back  url="%$mypath254%" flip="" />
+        
+            <up  url="%$mypath255%" flip="" />
+        
+            <right  url="%$mypath256%" flip="" />
+        </image>
+    </scene>
+
+    <scene name="scene26" lat="" lng="" heading="" onstart="" thumburl="%$mypath261%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath261%" flip="" />
+          
+            <down  url="%$mypath262%" flip="" />
+        
+            <left  url="%$mypath263%" flip="" />
+        
+            <back  url="%$mypath264%" flip="" />
+        
+            <up  url="%$mypath265%" flip="" />
+        
+            <right  url="%$mypath266%" flip="" />
+        </image>
+    </scene>
+
+    <scene name="scene27" lat="" lng="" heading="" onstart="" thumburl="%$mypath271%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath271%" flip="" />
+          
+            <down  url="%$mypath272%" flip="" />
+        
+            <left  url="%$mypath273%" flip="" />
+        
+            <back  url="%$mypath274%" flip="" />
+        
+            <up  url="%$mypath275%" flip="" />
+        
+            <right  url="%$mypath276%" flip="" />
+        </image>
+    </scene>
+
+    <scene name="scene28" lat="" lng="" heading="" onstart="" thumburl="%$mypath281%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath281%" flip="" />
+          
+            <down  url="%$mypath282%" flip="" />
+        
+            <left  url="%$mypath283%" flip="" />
+        
+            <back  url="%$mypath284%" flip="" />
+        
+            <up  url="%$mypath285%" flip="" />
+        
+            <right  url="%$mypath286%" flip="" />
+        </image>
+    </scene>
+
+    <scene name="scene29" lat="" lng="" heading="" onstart="" thumburl="%$mypath291%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="CUBE" tilesize="512">
+            <front  url="%$mypath291%" flip="" />
+          
+            <down  url="%$mypath292%" flip="" />
+        
+            <left  url="%$mypath293%" flip="" />
+        
+            <back  url="%$mypath294%" flip="" />
+        
+            <up  url="%$mypath295%" flip="" />
+        
+            <right  url="%$mypath296%" flip="" />
+        </image>
+    </scene>
+
+    <events keep="true"
+            onclick=" skin_showthumbs();"
+            />
+</krpano>

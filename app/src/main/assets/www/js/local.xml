@@ -1,0 +1,1070 @@
+<krpano version="1.18" title="深圳罗湖" onstart="startup();" showerrors="true">
+
+    <include url="vtourskin.xml" />
+
+    <!-- set skin settings: bingmaps? gyro? thumbnails? tooltips? -->
+    <skin_settings maps="false"
+                   maps_zoombuttons="false"
+                   gyro="true"
+                   title="true"
+                   thumbs="true"
+                   thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="1000|250|3000|2000"
+                   thumbs_opened="false"
+                   thumbs_text="true"
+                   thumbs_dragging="true"
+                   thumbs_onhoverscrolling="true"
+                   thumbs_scrollbuttons="false"
+                   thumbs_scrollindicator="false"
+                   thumbs_loop="false"
+                   tooltips_thumbs="true"
+                   tooltips_hotspots="false"
+                   tooltips_mapspots="false"
+                   loadscene_flags="MERGE"
+                   loadscene_blend="BLEND(0.5)"
+                   controlbar_offset="50"
+    />
+    <!-- set optional skin logo url -->
+    <layer name="skin_logo" url="" scale="0.25" opened_onclick="openurl('...',_blank);" />
+
+    <action name="startup">
+        if(startscene === null, copy(startscene,scene[0].name));
+        set(skin_settings.scene_count, get(number));
+        set(scene[0].title,get(name0));
+        set(scene[1].title,get(name1));
+        set(scene[2].title,get(name2));
+        set(scene[3].title,get(name3));
+        set(scene[4].title,get(name4));
+        set(scene[5].title,get(name5));
+        set(scene[6].title,get(name6));
+        set(scene[7].title,get(name7));
+        set(scene[8].title,get(name8));
+        set(scene[9].title,get(name9));
+        set(scene[10].title,get(name10));
+        set(scene[11].title,get(name11));
+        set(scene[12].title,get(name12));
+        set(scene[13].title,get(name13));
+        set(scene[14].title,get(name14));
+        set(scene[15].title,get(name15));
+        set(scene[16].title,get(name16));
+        set(scene[17].title,get(name17));
+        set(scene[18].title,get(name18));
+        set(scene[19].title,get(name19));
+        set(scene[20].title,get(name20));
+        set(scene[21].title,get(name21));
+        set(scene[22].title,get(name22));
+        set(scene[23].title,get(name23));
+        set(scene[24].title,get(name24));
+        set(scene[25].title,get(name25));
+        set(scene[26].title,get(name26));
+        set(scene[27].title,get(name27));
+        set(scene[28].title,get(name28));
+        set(scene[29].title,get(name29));
+        loadscene(get(startscene), null, MERGE);
+        skin_showthumbs();
+    </action>
+
+    <data name="bottom_html">
+        <p>速腾聚创</p>
+    </data>
+
+    <!-- 底部广告图 -->
+    <hotspot name="bottom_background"
+             url="%SWFPATH%/images/bottom.png"
+             enabled="true"
+             keep="true"
+             handcursor="false"
+             ath="0" atv="90" rx="0.0" ry="0.0" rz="0.0"
+             width="360" height="360"
+             distorted="true"
+             ondown="skin_view_change_with_hotspot();"
+             />
+    <hotspot name="bottom_trademark"
+             url="%SWFPATH%/plugins/textfield.swf"
+             css="text-align:center; color:#494949; font-family:黑体; text-align:center;  font-size:40px;"
+             enabled="true"
+             keep="true"
+             shadowangle="45" shadowrange="4.0"
+             handcursor="false"
+             background="false"
+             ath="0" atv="90" rx="0.0" ry="0.0" rz="0.0"
+             distorted="true"
+             html="data:bottom_html"
+             />
+
+    <!-- 顶部广告图 -->
+    <hotspot name="top_trademark" 
+             type="image"
+             waittime="1"
+             keep="true"
+             url="%SWFPATH%/images/logo_ie.png"
+             devices="all"
+             handcursor="false"
+             ath="0" atv="-90" rx="0.0" ry="0.0" rz="0.0"
+             width="360" height="360"
+             distorted="true"
+             ondown="skin_view_change_with_hotspot();"
+             />
+
+    <scene name="scene0" lat="" lng="" heading="" onstart="" thumburl="%$mypath0%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath0%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle0"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change0" keep="false" onviewchange="add(layer[skin_needle0].rotate,get(view.hlookat),get(cfov0));"/>
+    </scene>
+
+    <scene name="scene1" lat="" lng="" heading="" onstart="" thumburl="%$mypath1%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath1%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle1"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle1].rotate,get(view.hlookat),get(cfov1));"/>
+    </scene>
+
+    <scene name="scene2" lat="" lng="" heading="" onstart="" thumburl="%$mypath2%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath2%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle2"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle2].rotate,get(view.hlookat),get(cfov2));"/>
+    </scene>
+
+    <scene name="scene3" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath3%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle3"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle3].rotate,get(view.hlookat),get(cfov3));"/>
+    </scene>
+
+    <scene name="scene4" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath4%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle4"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle4].rotate,get(view.hlookat),get(cfov4));"/>
+    </scene>
+
+    <scene name="scene5" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath5%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle5"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle5].rotate,get(view.hlookat),get(cfov5));"/>
+    </scene>
+
+    <scene name="scene6" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath6%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle6"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle6].rotate,get(view.hlookat),get(cfov6));"/>
+    </scene>
+
+    <scene name="scene7" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath7%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle7"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle7].rotate,get(view.hlookat),get(cfov7));"/>
+    </scene>
+
+    <scene name="scene8" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath8%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle8"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle8].rotate,get(view.hlookat),get(cfov8));"/>
+    </scene>
+
+    <scene name="scene9" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath9%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle9"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle9].rotate,get(view.hlookat),get(cfov9));"/>
+    </scene>
+
+    <scene name="scene10" lat="" lng="" heading="" onstart="" thumburl="%$mypath0%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath10%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle10"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change0" keep="false" onviewchange="add(layer[skin_needl1e0].rotate,get(view.hlookat),get(cfov10));"/>
+    </scene>
+
+    <scene name="scene11" lat="" lng="" heading="" onstart="" thumburl="%$mypath1%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath11%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle11"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle11].rotate,get(view.hlookat),get(cfov11));"/>
+    </scene>
+
+    <scene name="scene12" lat="" lng="" heading="" onstart="" thumburl="%$mypath2%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath12%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle12"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle12].rotate,get(view.hlookat),get(cfov12));"/>
+    </scene>
+
+    <scene name="scene13" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath13%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle13"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle13].rotate,get(view.hlookat),get(cfov13));"/>
+    </scene>
+
+    <scene name="scene14" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath14%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle14"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle14].rotate,get(view.hlookat),get(cfov14));"/>
+    </scene>
+
+    <scene name="scene15" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath15%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle15"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle15].rotate,get(view.hlookat),get(cfov15));"/>
+    </scene>
+
+    <scene name="scene16" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath16%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle16"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle16].rotate,get(view.hlookat),get(cfov16));"/>
+    </scene>
+
+    <scene name="scene17" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath17%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle17"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle17].rotate,get(view.hlookat),get(cfov17));"/>
+    </scene>
+
+    <scene name="scene18" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath18%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle18"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle18].rotate,get(view.hlookat),get(cfov18));"/>
+    </scene>
+
+    <scene name="scene19" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath19%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle19"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle19].rotate,get(view.hlookat),get(cfov19));"/>
+    </scene>
+
+    <scene name="scene20" lat="" lng="" heading="" onstart="" thumburl="%$mypath0%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath20%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle20"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change0" keep="false" onviewchange="add(layer[skin_needl2e0].rotate,get(view.hlookat),get(cfov20));"/>
+    </scene>
+
+    <scene name="scene21" lat="" lng="" heading="" onstart="" thumburl="%$mypath1%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath21%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle21"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle21].rotate,get(view.hlookat),get(cfov21));"/>
+    </scene>
+
+    <scene name="scene22" lat="" lng="" heading="" onstart="" thumburl="%$mypath2%">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath22%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle22"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle22].rotate,get(view.hlookat),get(cfov22));"/>
+    </scene>
+
+    <scene name="scene23" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath23%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle23"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle23].rotate,get(view.hlookat),get(cfov23));"/>
+    </scene>
+
+    <scene name="scene24" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath24%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle24"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle24].rotate,get(view.hlookat),get(cfov24));"/>
+    </scene>
+
+    <scene name="scene25" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath25%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle25"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle25].rotate,get(view.hlookat),get(cfov25));"/>
+    </scene>
+
+    <scene name="scene26" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath26%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle26"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle26].rotate,get(view.hlookat),get(cfov26));"/>
+    </scene>
+
+    <scene name="scene27" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath27%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle27"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle27].rotate,get(view.hlookat),get(cfov27));"/>
+    </scene>
+
+    <scene name="scene28" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath28%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle28"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle28].rotate,get(view.hlookat),get(cfov28));"/>
+    </scene>
+
+    <scene name="scene29" lat="" lng="" heading="" onstart="" thumburl="">
+        <view hlookat="0" vlookat="0" fovtype="MFOV" fov="110.000" maxpixelzoom="1.3" fovmin="100" fovmax="110" limitview="auto" />
+
+        <!-- pano (note - to keep this example small the same image as the preview image is used here) -->
+        <image type="SPHERE" tilesize="512">
+            <sphere url="%$mypath29%" flip="" />
+        </image>
+
+        <layer name="skin_compass" type="container" bgalpha="0" bgcolor="0x000000" align="lefttop" width="120" height="120" x="15" y="15">
+              <layer  name="skin_plate"   
+                      type="image"
+                      url="%SWFPATH%/images/plate.png"
+                      handcursor="false"
+                      width="120"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+              <layer  name="skin_needle29"   
+                      type="image"
+                      url="%SWFPATH%/images/needle.png"
+                      handcursor="false"
+                      width="120"
+                      parent="skin_plate"
+                      height="120"
+                      align="center"
+                      visible="true"
+                      />
+          </layer>
+          <events name="compass_change" keep="false" onviewchange="add(layer[skin_needle29].rotate,get(view.hlookat),get(cfov29));"/>
+    </scene>
+    <events keep="true"
+            onclick="skin_showmap(false); skin_showthumbs();"
+            />
+</krpano>

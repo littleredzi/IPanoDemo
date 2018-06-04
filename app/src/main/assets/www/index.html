@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="generator" content="Panotour Pro V2.0.1 64bits" />
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <meta http-equiv="x-ua-compatible" content="IE=edge" />
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="cordova_plugins.js"></script>
+        <script type="text/javascript" src="js/MyPlguin.js"></script>
+        <script src="js/tour.js"></script>
+
+        <style>
+            @-ms-viewport { width:device-width; }
+            @media only screen and (min-device-width:800px) { html { overflow:hidden; } }
+            html { height:100%; }
+            body { height:100%; overflow:hidden; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#FFFFFF; background-color:#000000; }
+        </style>
+    </head>
+    <body>
+        <div id="pano" style="width:100%;height:100%;"></div>
+        <script type="text/javascript">
+
+                    function initSlider(config){
+                            $('body').append(template('template-slider',config));
+                            $('.slider-scroller').width($('.slider').size()*90);
+                            if(checkMobile()){
+                                bindClick($('.slider-btn'),sliderSwitch);
+                                bindClick($('.slider'),sliderClick);
+                            }else{
+                                $('.slider-btn').on('click',sliderSwitch);
+                                $('.slider').on('click',sliderClick);
+                            }
+                        }
+                    function sliderSwitch(){
+                        if($('.slider-wrap').hasClass('show')){
+                            $('.slider-wrap').removeClass('show');
+                        }else{
+                            $('.slider-wrap').addClass('show');
+                        }
+                    }
+                    
+                    function sliderClick(){
+                        changeScene($(this).attr('data-key'));
+                    }
+                    
+
+            function deal(result){
+                var config = JSON.parse(result);
+                var len = config.romaing.length;
+            
+
+                    //1:6
+                    var initvars={};
+                    var t=['/negx.jpg','/negy.jpg','/negz.jpg','/posx.jpg','/posy.jpg','/posz.jpg'];
+                    for (var i = 0; i < 30; i++) {
+                        if (i<len) {
+                            for(var j=1;j<7;j++){
+                                initvars["mypath"+i+j] = config.romaing[i].img_url+t[j-1];
+                            }
+                        }else{
+                            for(var j=1;j<7;j++){
+                                initvars["mypath"+i+j] = config.romaing[len-1].img_url+t[j-1];
+                            }
+                        }
+                    };
+                    embedpano({swf:"js/tour.swf", xml:"js/local16.xml", target:"pano", html5:"prefer", passQueryParameters:true, id:"stipano", initvars:initvars});
+                
+            var match,
+                scale,
+                TARGET_WIDTH = 640;
+
+            if (match = navigator.userAgent.match(/Android (\d+\.\d+)/)) {
+                if (parseFloat(match[1]) >= 4.4) {
+                    if (TARGET_WIDTH == 320) TARGET_WIDTH++;
+                    var scale = window.screen.width / TARGET_WIDTH;
+                    if (config.dpi>=320) {
+                        document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale = 1.0, target-densitydpi=medium-dpi');
+                    }
+                }else if(parseFloat(match[1]) < 4.4){
+                     document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale = 1.0, target-densitydpi=321');
+                }
+            } else {
+                // document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + TARGET_WIDTH);
+            }
+                var krpano = document.getElementById("stipano"); 
+                krpano.set("number", len);
+                for (var i = 0; i < 30; i++) {
+                    if (i<len) {
+                        krpano.set("cfov"+i, config.romaing[i].cfov);
+                        krpano.set("name"+i, config.romaing[i].name);
+                    }else{
+                        krpano.set("cfov"+i, config.romaing[len-1].cfov);
+                        krpano.set("name"+i, config.romaing[len-1].name);
+                    }
+                };
+            }
+			
+			
+                    document.addEventListener("deviceready",onDeviceReady,false);
+                    function onError(err){
+                        alert(error);
+                    }
+                    function onDeviceReady(){
+                        MyIOSPlugin.nativeFunction("print",['HelloWorld'],deal,onError);
+                    }
+					
+					    function testPlugin() {
+        this._callback;
+    }
+try{
+	var exec=cordova.require('cordova/exec');
+	exec(deal,onError,"test01","test",['first','second']);
+}
+catch(e){
+	alert(e);
+}
+    
+        </script>
+    </body>
+</html>
